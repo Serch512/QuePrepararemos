@@ -1,0 +1,15 @@
+<img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
+            <span style="display: block; font-size: 11px; color: #999; margin-bottom: 10px">
+                <!-- quick & dirty captcha reloader -->
+                <a href="#" onclick="document.getElementById('captcha').src = '<?php echo URL; ?>login/showCaptcha?' + Math.random(); return false">[ Reload Captcha ]</a>
+            </span>
+            <label>
+                Please enter these characters
+                <span style="display: block; font-size: 11px; color: #999;">
+                    Please note: This captcha will be generated when the img tag requests the captcha-generation
+                    (and a real image) from YOURURL/login/showcaptcha. As this is a client-side triggered request, the
+                    $_SESSION["captcha"] dump in the footer will not show the captcha characters. The captcha generation
+                    happens AFTER the rendering of the footer.
+                </span>
+            </label>
+            <input type="text" name="captcha" required />
